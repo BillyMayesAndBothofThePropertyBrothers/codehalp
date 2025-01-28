@@ -1,27 +1,33 @@
-#include <stdio.h>
 #include <cs50.h>
+#include <stdio.h>
+#include <math.h>
 
-int calculate_quarters(int cents);
+float calculate_quarters(float cents);
 
-int calculate_dimes(int cents);
+float calculate_dimes(float cents);
 
-int calculate_nickels(int cents);
+float calculate_nickels(float cents);
 
-int calculate_pennies(int cents);
+float calculate_pennies(float pennies);
 
 int main(void)
 {
-    int cents;
+    float cents;
     do
     {
-        cents = get_int("Change owed: ");
+        cents = get_float("Change owed: ");
     }
-    while (cents < 0);
+    while (cents > 0 || cents <= 99);
 
-    int quarters = calculate_quarters(cents);
+    float quarters = calculate_quarters(cents);
 
-    cents = cents - (quarters * 25);
-    
+    float dimes = calculate_dimes(cents);
+
+    float nickels = calculate_nickels(cents);
+
+    float pennies = calculate_pennies(cents);
+
+    float coins = quarters + dimes + nickels + pennies;
 }
 
 
@@ -30,47 +36,44 @@ int main(void)
 
 
 
-int calculate_quarters(int cents)
+
+
+
+
+
+
+float calculate_quarters(float cents)
 {
-    // calculate how many quarters to give
-    int quarters = 0;
-    while (cents >= 25)
-    {
-        quarters++;
-        cents = cents - 25;
-    }
+    float quarters = floor(cents / 25);
+
+    cents -= quarters * 25;
+
     return quarters;
 }
 
-int calculate_dimes(int cents)
+float calculate_dimes(float cents)
 {
-    int dimes = 0;
-    while (cents >= 10)
-    {
-        dimes++;
-        dimes = dimes - 10;
-    }
+    float dimes = floor(cents / 10);
+
+    cents -=dimes * 10;
+
     return dimes;
 }
 
-int calculate_nickels(int cents)
+float calculate_nickels(float cents)
 {
-    int nickels = 0;
-    while (cents >= 5)
-    {
-        nickels++;
-        nickels = nickels - 5;
-    }
+    float nickels = floor(cents / 5);
+
+    cents -=nickels * 5;
+
     return nickels;
 }
 
-int calculate_pennies(int cents)
+float calculate_pennies(float cents)
 {
-    int pennies = 0;
-    while (cents >= 1)
-    {
-        pennies++;
-        pennies = pennies - 1;
-    }
+    float pennies = floor(cents / 1);
+
+    cents -=pennies * 1;
+
     return pennies;
 }
