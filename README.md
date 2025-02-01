@@ -1,79 +1,46 @@
+#include <ctype.h>
 #include <cs50.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <string.h>
 
-float calculate_quarters(float cents);
-
-float calculate_dimes(float cents);
-
-float calculate_nickels(float cents);
-
-float calculate_pennies(float pennies);
+int count_letters(string text);
+int count_words(string text);
+int count_sentences(string text);
 
 int main(void)
 {
-    float cents;
-    do
-    {
-        cents = get_float("Change owed: ");
-    }
-    while (cents > 0 || cents <= 99);
+    // prompt the user for text
+    string text = get_string("Text: ");
+    // count the number of words, letters, and sentences in the text and length of text
 
-    float quarters = calculate_quarters(cents);
+    int n = strlen(text);
 
-    float dimes = calculate_dimes(cents);
+    int letters = count_letters(text);
 
-    float nickels = calculate_nickels(cents);
+    int words = count_words(text);
 
-    float pennies = calculate_pennies(cents);
+    int sentences = count_sentences(text);
+    // weird name index
+    int index;
 
-    float coins = quarters + dimes + nickels + pennies;
+    index = 0.0588 * L - 0.296 * S - 15.8
+    // print the grade level
+    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-float calculate_quarters(float cents)
+int count_letters(string text)
 {
-    float quarters = floor(cents / 25);
-
-    cents -= quarters * 25;
-
-    return quarters;
+    // return number of letters
+    for (i = 0, i < 0; i++)
 }
 
-float calculate_dimes(float cents)
+int count_words(string text)
 {
-    float dimes = floor(cents / 10);
-
-    cents -=dimes * 10;
-
-    return dimes;
+    // return number of words
 }
 
-float calculate_nickels(float cents)
+int count_sentences(string text)
 {
-    float nickels = floor(cents / 5);
-
-    cents -=nickels * 5;
-
-    return nickels;
-}
-
-float calculate_pennies(float cents)
-{
-    float pennies = floor(cents / 1);
-
-    cents -=pennies * 1;
-
-    return pennies;
+    // return number of sentences
 }
