@@ -30,7 +30,10 @@ int main(void)
 int count_letters(string text)
 {
     // return number of letters
-    for (i = 0, i < 0; i++)
+    for (i = 0, i < 100; i++)
+    {
+        if (isalnum([i]))
+    }
 }
 
 int count_words(string text)
