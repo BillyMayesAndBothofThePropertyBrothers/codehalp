@@ -14,8 +14,6 @@ int main(void)
     string text = get_string("Text: ");
     // count the number of words, letters, and sentences in the text and length of text
 
-    int n = strlen(text);
-
     int letters = count_letters(text);
 
     int words = count_words(text);
@@ -26,7 +24,7 @@ int main(void)
 
     index = 0.0588 * L - 0.296 * S - 15.8
     // print the grade level
-    
+
 }
 
 int count_letters(string text)
